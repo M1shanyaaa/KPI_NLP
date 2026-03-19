@@ -1,0 +1,346 @@
+{
+  "nltk": {
+    "elapsed": 2.2122,
+    "tok": {
+      "word": 1133,
+      "sent": 1,
+      "mwe": 1124
+    },
+    "n_stop": 772,
+    "uniq": {
+      "lemma": 534,
+      "porter": 514,
+      "snowball": 513
+    },
+    "top_lm": [
+      [
+        "data",
+        27
+      ],
+      [
+        "analysis",
+        8
+      ],
+      [
+        "dashboard",
+        7
+      ],
+      [
+        "для",
+        6
+      ],
+      [
+        "datasets",
+        5
+      ],
+      [
+        "sql",
+        5
+      ],
+      [
+        "analytical",
+        5
+      ],
+      [
+        "english",
+        5
+      ],
+      [
+        "tool",
+        5
+      ],
+      [
+        "analyst",
+        5
+      ],
+      [
+        "які",
+        5
+      ],
+      [
+        "compensation",
+        5
+      ]
+    ],
+    "top_po": [
+      [
+        "data",
+        27
+      ],
+      [
+        "analysi",
+        8
+      ],
+      [
+        "dashboard",
+        7
+      ],
+      [
+        "analyt",
+        6
+      ],
+      [
+        "для",
+        6
+      ],
+      [
+        "dataset",
+        5
+      ],
+      [
+        "insight",
+        5
+      ],
+      [
+        "sql",
+        5
+      ],
+      [
+        "english",
+        5
+      ],
+      [
+        "tool",
+        5
+      ],
+      [
+        "analyst",
+        5
+      ],
+      [
+        "які",
+        5
+      ]
+    ],
+    "top_sn": [
+      [
+        "data",
+        27
+      ],
+      [
+        "analysi",
+        8
+      ],
+      [
+        "dashboard",
+        7
+      ],
+      [
+        "analyt",
+        6
+      ],
+      [
+        "для",
+        6
+      ],
+      [
+        "dataset",
+        5
+      ],
+      [
+        "insight",
+        5
+      ],
+      [
+        "sql",
+        5
+      ],
+      [
+        "english",
+        5
+      ],
+      [
+        "tool",
+        5
+      ],
+      [
+        "analyst",
+        5
+      ],
+      [
+        "які",
+        5
+      ]
+    ]
+  },
+  "spacy": {
+    "elapsed": 0.3117,
+    "tok": {
+      "all": 1274,
+      "alpha": 1133,
+      "sent": 12
+    },
+    "n_stop": 760,
+    "uniq": {
+      "lemma": 526
+    },
+    "top_lm": [
+      [
+        "datum",
+        18
+      ],
+      [
+        "data",
+        9
+      ],
+      [
+        "analysis",
+        8
+      ],
+      [
+        "dashboard",
+        7
+      ],
+      [
+        "для",
+        6
+      ],
+      [
+        "dataset",
+        5
+      ],
+      [
+        "sql",
+        5
+      ],
+      [
+        "analytical",
+        5
+      ],
+      [
+        "english",
+        5
+      ],
+      [
+        "tool",
+        5
+      ],
+      [
+        "analyst",
+        5
+      ],
+      [
+        "які",
+        5
+      ]
+    ],
+    "tfidf": [
+      [
+        "budget",
+        0.02285100595252567
+      ],
+      [
+        "compensation",
+        0.021262183452759056
+      ],
+      [
+        "trial",
+        0.017009746762207248
+      ],
+      [
+        "period",
+        0.017009746762207248
+      ],
+      [
+        "dataset",
+        0.016988901484312383
+      ],
+      [
+        "для",
+        0.013771136037614807
+      ],
+      [
+        "amazon",
+        0.013591121187449907
+      ],
+      [
+        "interview",
+        0.012757310071655436
+      ],
+      [
+        "які",
+        0.01147594669801234
+      ],
+      [
+        "operational",
+        0.01019334089058743
+      ],
+      [
+        "process",
+        0.01019334089058743
+      ],
+      [
+        "large",
+        0.01019334089058743
+      ]
+    ],
+    "rake": [
+      [
+        "experience",
+        15.0
+      ],
+      [
+        "datum analysis",
+        13.0
+      ],
+      [
+        "sql experience",
+        10.0
+      ],
+      [
+        "datum quality datum governance",
+        9.75
+      ],
+      [
+        "analyze datum",
+        9.5
+      ],
+      [
+        "datum analysis hands",
+        9.0
+      ],
+      [
+        "work",
+        9.0
+      ],
+      [
+        "plus experience",
+        9.0
+      ]
+    ],
+    "ner": [
+      [
+        "SQL",
+        4
+      ],
+      [
+        "English",
+        3
+      ],
+      [
+        "ELT",
+        2
+      ],
+      [
+        "Attention",
+        2
+      ],
+      [
+        "Project Overview",
+        1
+      ],
+      [
+        "Amazon",
+        1
+      ],
+      [
+        "Key Responsibilities Design",
+        1
+      ],
+      [
+        "Amazon QuickSight Write",
+        1
+      ]
+    ]
+  }
+}
