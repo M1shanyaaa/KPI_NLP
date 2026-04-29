@@ -25,10 +25,7 @@ except OSError:
     exit()
 
 
-# =====================================================================
-# І РІВЕНЬ: WEB-СКРАПІНГ ТА АГРЕГАЦІЯ (IN-MEMORY)
-# =====================================================================
-
+# І РІВЕНЬ: WEB-СКРАПІНГ ТА АГРЕГАЦІЯ
 def scrape_category(url, platform_name, category_name):
     """
     Базовий web-скрапер. Повертає зібраний текст замість збереження у файл.
@@ -59,7 +56,7 @@ def scrape_category(url, platform_name, category_name):
     except Exception as e:
         print(f"Помилка доступу до {url}: {e}")
 
-    # ФОЛБЕК (Mock Data)
+    # (Mock Data)
     print(f"Згенерувано тестові дані для {platform_name} -> {category_name}")
     mock_data = generate_mock_data(category_name, platform_name)
 
@@ -75,14 +72,8 @@ def generate_mock_data(category, platform):
     return data.get(category, f"Товари категорії {category} на {platform}.")
 
 
-# =====================================================================
-# І РІВЕНЬ: ПОРІВНЯЛЬНИЙ АНАЛІЗ (NLP Similarity)
-# =====================================================================
-
+# І РІВЕНЬ: ПОРІВНЯЛЬНИЙ АНАЛІЗ
 def text_filter_ukr(text):
-    """
-    Фільтрація та лематизація україномовного тексту.
-    """
     text = text.replace("\n", " ").lower()
     text = re.sub(r'[^\w\s]', '', text)
     text = re.sub(r'[0-9]+', '', text)
@@ -93,9 +84,6 @@ def text_filter_ukr(text):
 
 
 def comparative_analysis(data_list):
-    """
-    Аналіз подібності пропозицій, приймає список словників із даними.
-    """
     print("\n--- Проведення порівняльного аналізу (Косинусна подібність) ---")
     documents = []
     labels = []
@@ -131,10 +119,7 @@ def comparative_analysis(data_list):
     plt.show()
 
 
-# =====================================================================
 # ІІ РІВЕНЬ: АНАЛІЗ ТОНАЛЬНОСТІ ВІДГУКІВ
-# =====================================================================
-
 def preprocess_text_en(text):
     doc = nlp_en(text)
     filtered_tokens = [token.lemma_ for token in doc if not token.is_stop and token.text.isalpha()]
@@ -178,10 +163,7 @@ def analyze_sentiment(reviews):
     print(df_results.to_string(index=False))
 
 
-# =====================================================================
-# ГОЛОВНИЙ БЛОК ВИКОНАННЯ
-# =====================================================================
-
+#БЛОК ВИКОНАННЯ
 if __name__ == '__main__':
     platforms = {
         "Rozetka": {
@@ -201,18 +183,14 @@ if __name__ == '__main__':
         }
     }
 
-    # Тепер збираємо словники з даними, а не імена файлів
+    # Тепер збираємо словники з даними
     scraped_data = []
-
     print("Починаємо збір даних (І рівень)...")
     for platform_name, categories_dict in platforms.items():
         for category, url in categories_dict.items():
-            # Отримуємо словник {"label": "...", "text": "..."}
             data = scrape_category(url, platform_name, category)
             if data:
                 scraped_data.append(data)
-
-    # Передаємо список словників для аналізу
     comparative_analysis(scraped_data)
 
     sample_reviews = [
