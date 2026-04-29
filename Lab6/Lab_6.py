@@ -6,7 +6,7 @@
           порівняльний аналіз пропозицій + аналіз тональності відгуків (ANN)
 """
 
-import json, re, time, os
+import time, os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -21,7 +21,7 @@ from tensorflow.keras.layers import Dense, Dropout, Embedding, GlobalAveragePool
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-# ─── 1. КОНСТАНТИ ───────────────────────────────────────────────────────────
+# ─── 1. КОНСТАНТИ ──────────────────────────────
 CATEGORIES = ["computers", "tvs", "fridges"]
 MAX_WORDS  = 5000
 MAX_LEN    = 60
@@ -40,7 +40,6 @@ HEADERS = {
 
 # ─── 2. СКРАПІНГ ────────────────────────────────────────────────────────────
 def scrape_rozetka(category: str, query: str, pages: int = 2) -> list[dict]:
-    """Scrape product listings from rozetka.com.ua search."""
     items = []
     for page in range(1, pages + 1):
         url = f"https://rozetka.com.ua/ua/search/?text={query}&page={page}"
@@ -65,7 +64,6 @@ def scrape_rozetka(category: str, query: str, pages: int = 2) -> list[dict]:
 
 
 def scrape_foxtrot(category: str, slug: str, pages: int = 2) -> list[dict]:
-    """Scrape product listings from foxtrot.com.ua."""
     items = []
     for page in range(1, pages + 1):
         url = f"https://www.foxtrot.com.ua/uk/shop/{slug}.html?page={page}"
@@ -90,7 +88,6 @@ def scrape_foxtrot(category: str, slug: str, pages: int = 2) -> list[dict]:
 
 
 def scrape_comfy(category: str, slug: str, pages: int = 2) -> list[dict]:
-    """Scrape product listings from comfy.ua."""
     items = []
     for page in range(1, pages + 1):
         url = f"https://comfy.ua/ua/{slug}/?page={page}"
@@ -115,7 +112,6 @@ def scrape_comfy(category: str, slug: str, pages: int = 2) -> list[dict]:
 
 
 def collect_all_products() -> pd.DataFrame:
-    """Run scraping for all categories and sources, save JSON + CSV."""
     cfg = {
         "computers": {
             "rozetka_q": "ноутбук",
@@ -151,7 +147,7 @@ def collect_all_products() -> pd.DataFrame:
     return df
 
 
-# ─── 3. СИНТЕТИЧНІ ДАНІ (fallback) ──────────────────────────────────────────
+# ─── 3. СИНТЕТИЧНІ ДАНІ (fallback) ────────────────────────
 def generate_synthetic(n: int = 300) -> pd.DataFrame:
     """Generate realistic synthetic product data when scraping fails."""
     rng = np.random.default_rng(42)
@@ -187,7 +183,7 @@ def generate_synthetic(n: int = 300) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-# ─── 4. АНАЛІЗ ТОНАЛЬНОСТІ — СИНТЕТИЧНІ ВІДГУКИ ────────────────────────────
+# ─── 4. АНАЛІЗ ТОНАЛЬНОСТІ — СИНТЕТИЧНІ ВІДГУКИ ─────────────────
 POSITIVE_REVIEWS = [
     "Відмінний товар, дуже задоволений покупкою! Рекомендую всім друзям.",
     "Чудова якість, швидка доставка, все як описано на сайті.",
@@ -240,7 +236,6 @@ NEUTRAL_REVIEWS = [
 def generate_reviews(n: int = 1500) -> pd.DataFrame:
     rng = np.random.default_rng(7)
     rows = []
-    # Build balanced-ish dataset with realistic augmentation
     for _ in range(n):
         label = rng.choice(["positive", "negative", "neutral"], p=[0.40, 0.40, 0.20])
         if label == "positive":
@@ -249,7 +244,6 @@ def generate_reviews(n: int = 1500) -> pd.DataFrame:
             base = rng.choice(NEGATIVE_REVIEWS)
         else:
             base = rng.choice(NEUTRAL_REVIEWS)
-        # Light augmentation: sometimes add a product mention
         products = ["ноутбук", "телевізор", "холодильник", "laptop", "TV", "fridge"]
         if rng.random() > 0.5:
             prod = rng.choice(products)
@@ -260,7 +254,7 @@ def generate_reviews(n: int = 1500) -> pd.DataFrame:
     return df
 
 
-# ─── 5. ПОБУДОВА ТА НАВЧАННЯ МОДЕЛІ ─────────────────────────────────────────
+# ─── 5. ПОБУДОВА ТА НАВЧАННЯ МОДЕЛІ ────────────────────────────
 def build_sentiment_model(vocab_size: int, num_classes: int) -> Sequential:
     model = Sequential([
         Embedding(vocab_size, 64, input_length=MAX_LEN),
@@ -301,7 +295,6 @@ def train_sentiment(reviews_df: pd.DataFrame):
         verbose=1,
     )
 
-    # Evaluate
     loss, acc = model.evaluate(X_te, y_te, verbose=0)
     print(f"\n✓ Test accuracy: {acc:.4f}  |  Test loss: {loss:.4f}")
 
@@ -353,7 +346,7 @@ def plot_category_comparison(products_df: pd.DataFrame):
     print("✓ Saved category_comparison.png")
 
 
-# ─── 7. PREDICT DEMO ─────────────────────────────────────────────────────────
+# ─── 7. PREDICT DEMO ───────────────────────────
 def predict_demo(model, tok, le):
     samples = [
         "Відмінний холодильник, дуже задоволений покупкою!",
@@ -372,36 +365,31 @@ def predict_demo(model, tok, le):
         print(f"  [{label:8s} {conf:.2f}] {text[:60]}")
 
 
-# ─── 8. ГОЛОВНА ФУНКЦІЯ ──────────────────────────────────────────────────────
+# ─── 8. ГОЛОВНА ФУНКЦІЯ ────────────────────────────
 def main():
     print("=" * 60)
     print("  Лабораторна робота №6 — Variant 11")
     print("=" * 60)
 
-    # 8.1 Збір даних
+    #  Збір даних
     products = collect_all_products()
     print("\n── Product stats ──")
     print(products.groupby(["category", "source"]).size().to_string())
 
-    # 8.2 Порівняльний аналіз
     plot_category_comparison(products)
 
-    # 8.3 Відгуки
     reviews = generate_reviews(1500)
     print(f"\n✓ Reviews distribution:\n{reviews['label'].value_counts().to_string()}")
 
-    # 8.4 Навчання
     model, tok, le, history, eval_data = train_sentiment(reviews)
 
-    # 8.5 Графіки
+    # Графіки
     X_te, y_te, y_pred = eval_data
     plot_training(history)
     plot_confusion(y_te, y_pred, le.classes_)
 
-    # 8.6 Демо
     predict_demo(model, tok, le)
 
-    # 8.7 Зберігаємо модель
     model.save(f"{DATA_DIR}/sentiment_model.keras")
     print(f"\n✓ Model saved → {DATA_DIR}/sentiment_model.keras")
     print("\n✓ Done. All outputs in ./data/")
