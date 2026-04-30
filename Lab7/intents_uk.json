@@ -1,0 +1,95 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns_uk": ["привіт", "добрий день", "вітаю", "добрий ранок", "добрий вечір", "здрастуйте", "хай", "доброго дня", "алло"],
+      "patterns_en": ["hello", "hi", "good morning", "good evening", "hey", "greetings"],
+      "responses_uk": ["Вітаємо у кав'ярні «Арома Кава»! Я ваш голосовий помічник. Чим можу допомогти?", "Доброго дня! Раді бачити вас у нашій кав'ярні. Що бажаєте замовити?", "Привіт! Я допоможу вам обрати найкращу каву або десерт."],
+      "responses_en": ["Welcome to Aroma Coffee! I am your voice assistant. How can I help you?", "Good day! We are glad to see you. What would you like to order?", "Hello! I will help you choose the best coffee or dessert."]
+    },
+    {
+      "tag": "menu",
+      "patterns_uk": ["меню", "що є", "що у вас є", "покажи меню", "що можна замовити", "ваш асортимент", "що пропонуєте", "список страв", "що є в меню"],
+      "patterns_en": ["menu", "what do you have", "show menu", "what can I order", "your assortment", "what do you offer", "list of items"],
+      "responses_uk": ["Наше меню включає: Гарячі напої — еспресо, американо, капучино, латте, флет уайт, мокко, гарячий шоколад; Холодні напої — айс латте, айс американо, фрапучино, смузі; Десерти — чізкейк, тірамісу, круасан, маффін, еклер. Що вас цікавить?", "У нас великий вибір кави, чаю та десертів. Хочете дізнатися про конкретну категорію?"],
+      "responses_en": ["Our menu includes: Hot drinks — espresso, americano, cappuccino, latte, flat white, mocha, hot chocolate; Cold drinks — iced latte, iced americano, frappuccino, smoothies; Desserts — cheesecake, tiramisu, croissant, muffin, eclair. What interests you?", "We have a wide selection of coffee, tea and desserts. Would you like to know about a specific category?"]
+    },
+    {
+      "tag": "coffee_hot",
+      "patterns_uk": ["гаряча кава", "гарячі напої", "еспресо", "американо", "капучино", "латте", "флет уайт", "мокко", "що з кави", "кава"],
+      "patterns_en": ["hot coffee", "hot drinks", "espresso", "americano", "cappuccino", "latte", "flat white", "mocha", "coffee"],
+      "responses_uk": ["Наші гарячі напої: Еспресо — 35 грн; Американо — 45 грн; Капучино — 65 грн; Латте — 70 грн; Флет Уайт — 70 грн; Мокко — 80 грн; Гарячий шоколад — 75 грн; Раф кава — 85 грн. Бажаєте дізнатися більше про якийсь напій?"],
+      "responses_en": ["Our hot drinks: Espresso — 35 UAH; Americano — 45 UAH; Cappuccino — 65 UAH; Latte — 70 UAH; Flat White — 70 UAH; Mocha — 80 UAH; Hot Chocolate — 75 UAH; Raf Coffee — 85 UAH. Would you like to know more about any drink?"]
+    },
+    {
+      "tag": "coffee_cold",
+      "patterns_uk": ["холодні напої", "холодна кава", "айс", "фрапучино", "смузі", "айс латте", "айс американо", "холодний", "освіжаючий"],
+      "patterns_en": ["cold drinks", "cold coffee", "ice", "frappuccino", "smoothie", "iced latte", "iced americano", "cold", "refreshing"],
+      "responses_uk": ["Наші холодні напої: Айс Латте — 80 грн; Айс Американо — 60 грн; Фрапучино — 95 грн; Смузі з манго — 90 грн; Смузі з ягодами — 90 грн; Холодний чай — 55 грн; Лимонад — 65 грн. Що оберете?"],
+      "responses_en": ["Our cold drinks: Iced Latte — 80 UAH; Iced Americano — 60 UAH; Frappuccino — 95 UAH; Mango Smoothie — 90 UAH; Berry Smoothie — 90 UAH; Cold Tea — 55 UAH; Lemonade — 65 UAH. What will you choose?"]
+    },
+    {
+      "tag": "desserts",
+      "patterns_uk": ["десерти", "солодке", "тістечко", "торт", "чізкейк", "тірамісу", "круасан", "маффін", "еклер", "що поїсти", "їжа", "закуска"],
+      "patterns_en": ["desserts", "sweets", "pastry", "cake", "cheesecake", "tiramisu", "croissant", "muffin", "eclair", "food", "snack"],
+      "responses_uk": ["Наші десерти: Чізкейк Нью-Йорк — 120 грн; Тірамісу — 110 грн; Круасан з маслом — 55 грн; Круасан з шоколадом — 65 грн; Маффін чорничний — 70 грн; Еклер — 75 грн; Медовик — 130 грн; Брауні — 90 грн. Все свіже та домашнє!"],
+      "responses_en": ["Our desserts: New York Cheesecake — 120 UAH; Tiramisu — 110 UAH; Butter Croissant — 55 UAH; Chocolate Croissant — 65 UAH; Blueberry Muffin — 70 UAH; Eclair — 75 UAH; Honey Cake — 130 UAH; Brownie — 90 UAH. Everything is fresh and homemade!"]
+    },
+    {
+      "tag": "price",
+      "patterns_uk": ["ціна", "скільки коштує", "вартість", "ціни", "скільки", "за скільки", "прайс"],
+      "patterns_en": ["price", "how much", "cost", "prices", "how much does it cost", "price list"],
+      "responses_uk": ["Наші ціни: Еспресо від 35 грн, Капучино від 65 грн, Латте від 70 грн, Десерти від 55 грн. Хочете дізнатися ціну конкретної позиції?"],
+      "responses_en": ["Our prices: Espresso from 35 UAH, Cappuccino from 65 UAH, Latte from 70 UAH, Desserts from 55 UAH. Would you like to know the price of a specific item?"]
+    },
+    {
+      "tag": "recommendation",
+      "patterns_uk": ["що порадите", "рекомендуєте", "що краще взяти", "порада", "що популярне", "що смачне", "хіт", "найкраще", "що обрати"],
+      "patterns_en": ["recommendation", "what do you recommend", "what is popular", "what is delicious", "bestseller", "best", "what to choose", "suggest"],
+      "responses_uk": ["Наш хіт продажів — Капучино з корицею та Чізкейк Нью-Йорк! Також дуже популярний Раф Кава та Тірамісу. Якщо ви вперше — обов'язково спробуйте наш авторський латте з ванільним сиропом!"],
+      "responses_en": ["Our bestseller is Cinnamon Cappuccino and New York Cheesecake! Raf Coffee and Tiramisu are also very popular. If it is your first time — definitely try our signature latte with vanilla syrup!"]
+    },
+    {
+      "tag": "allergens",
+      "patterns_uk": ["алергія", "алергени", "без лактози", "без глютену", "вегетаріанське", "веганське", "молоко", "горіхи", "рослинне молоко"],
+      "patterns_en": ["allergy", "allergens", "lactose free", "gluten free", "vegetarian", "vegan", "milk", "nuts", "plant milk"],
+      "responses_uk": ["Ми пропонуємо рослинні альтернативи молока: вівсяне, мигдальне, соєве — доплата 15 грн. Також є страви без глютену — запитайте нашого баристу. При алергії на горіхи — уникайте мигдального молока та медовика."],
+      "responses_en": ["We offer plant milk alternatives: oat, almond, soy — extra charge 15 UAH. We also have gluten-free options — ask our barista. If allergic to nuts — avoid almond milk and honey cake."]
+    },
+    {
+      "tag": "hours",
+      "patterns_uk": ["години роботи", "коли відкриті", "розклад", "до якого часу", "з якого часу", "режим роботи", "відчинено", "зачинено"],
+      "patterns_en": ["working hours", "when open", "schedule", "until what time", "from what time", "opening hours", "open", "closed"],
+      "responses_uk": ["Кав'ярня «Арома Кава» працює щодня з 7:00 до 22:00. У вихідні — до 23:00. Ми знаходимося за адресою: вулиця Шевченка, 12, Київ."],
+      "responses_en": ["Aroma Coffee works every day from 7:00 to 22:00. On weekends — until 23:00. We are located at: Shevchenko Street, 12, Kyiv."]
+    },
+    {
+      "tag": "order",
+      "patterns_uk": ["замовити", "хочу", "візьму", "дайте", "мені", "буду", "замовлення", "хочу взяти", "можна"],
+      "patterns_en": ["order", "I want", "I will take", "give me", "I would like", "can I have", "please"],
+      "responses_uk": ["Чудовий вибір! Ваше замовлення прийнято. Час приготування — 5-7 хвилин. Чи бажаєте додати щось ще?", "Відмінно! Ми вже готуємо для вас. Бажаєте щось іще до вашого замовлення?"],
+      "responses_en": ["Excellent choice! Your order has been accepted. Preparation time — 5-7 minutes. Would you like to add anything else?", "Great! We are already preparing for you. Would you like anything else with your order?"]
+    },
+    {
+      "tag": "thank",
+      "patterns_uk": ["дякую", "спасибі", "дуже дякую", "велике спасибі", "дякую велике"],
+      "patterns_en": ["thank you", "thanks", "thank you very much", "many thanks"],
+      "responses_uk": ["Будь ласка! Гарного дня і приємного смакування!", "Завжди раді допомогти! Приходьте до нас знову!"],
+      "responses_en": ["You are welcome! Have a great day and enjoy your drink!", "Always happy to help! Please come again!"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns_uk": ["до побачення", "бувайте", "прощавайте", "на все добре", "поки", "bye", "вихід", "стоп"],
+      "patterns_en": ["goodbye", "bye", "farewell", "see you", "exit", "stop", "quit"],
+      "responses_uk": ["До побачення! Чекаємо на вас знову у кав'ярні «Арома Кава»!"],
+      "responses_en": ["Goodbye! We look forward to seeing you again at Aroma Coffee!"]
+    },
+    {
+      "tag": "language",
+      "patterns_uk": ["змінити мову", "українська", "перейти на", "english", "англійська", "мова"],
+      "patterns_en": ["change language", "ukrainian", "switch to", "українська", "english", "language"],
+      "responses_uk": ["Мову змінено на українську. Чим можу допомогти?"],
+      "responses_en": ["Language changed to English. How can I help you?"]
+    }
+  ]
+}
